@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CommonHeaderForMap.h"
 @interface ViewController : UIViewController
-
+@property (nonatomic, strong) BMKMapView* mapView;
 
 @end
 
