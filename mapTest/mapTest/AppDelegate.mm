@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#define Baidu_Map_General_Key @"Olu3nx4fEaPxZ4Y8VwKv3WnR"
 @interface AppDelegate ()
 
 @end
@@ -16,10 +16,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _mapManager  = [[BMKMapManager alloc] init];
+    
+    BOOL ret = [_mapManager start:Baidu_Map_General_Key generalDelegate:self];
+    if (!ret) {
+        NSLog(@"错了");
+    }else{ NSLog(@"成功验证Key");}
+    
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
 
+
+
+- (void)onGetNetworkState:(int)iError {
+
+    if (0 ==iError) {
+        NSLog(@"联网成功");
+    }else{NSLog(@"%d",iError);}
+}
+
+- (void)onGetPermissionState:(int)iError {
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    }else{NSLog(@"%d",iError);}
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
