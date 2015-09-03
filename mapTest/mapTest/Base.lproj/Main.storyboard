@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,51 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qV7-CN-LmZ">
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sI0-kj-Eqz">
+                                <rect key="frame" x="26" y="35" width="150" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="dr1-2Q-SnP"/>
+                                    <constraint firstAttribute="height" constant="70" id="kXd-fO-juU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEN-an-nm7">
+                                <rect key="frame" x="191" y="55" width="46" height="30"/>
+                                <state key="normal" title="search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPOI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zR1-ke-3Pn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qV7-CN-LmZ" secondAttribute="trailing" id="A4M-44-eGK"/>
+                            <constraint firstItem="qV7-CN-LmZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="GGA-Aj-GIW"/>
+                            <constraint firstItem="sI0-kj-Eqz" firstAttribute="top" secondItem="gEN-an-nm7" secondAttribute="top" constant="-20" id="JA0-p0-yF4"/>
+                            <constraint firstItem="sI0-kj-Eqz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="NRa-Xh-NV7"/>
+                            <constraint firstItem="sI0-kj-Eqz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="U0x-bf-7C7"/>
+                            <constraint firstItem="sI0-kj-Eqz" firstAttribute="bottom" secondItem="gEN-an-nm7" secondAttribute="bottom" constant="20" id="Zaf-zY-bux"/>
+                            <constraint firstItem="gEN-an-nm7" firstAttribute="leading" secondItem="sI0-kj-Eqz" secondAttribute="trailing" constant="15" id="hiT-bQ-Azv"/>
+                            <constraint firstItem="qV7-CN-LmZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u9b-rZ-MrY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qV7-CN-LmZ" secondAttribute="bottom" id="uPd-Wm-nbZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapshowView" destination="qV7-CN-LmZ" id="Ds7-9i-fmk"/>
+                        <outlet property="searchTextField" destination="sI0-kj-Eqz" id="Lcp-Fd-wqS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="211" y="307"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,8 @@
 #import "CommonHeaderForMap.h"
 @interface ViewController : UIViewController
 @property (nonatomic, strong) BMKMapView* mapView;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UIView *mapshowView;
 
 @end
 
